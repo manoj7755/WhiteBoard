@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000"
+    tools:context=".MainActivity">
+  <com.mihir.drawingcanvas.drawingView
+      android:id="@+id/drawing_view"
+      android:background="@drawable/background_round"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_marginTop="10dp"
+      android:layout_marginBottom="90dp">
+
+  </com.mihir.drawingcanvas.drawingView>8
+  <FrameLayout
+      android:id="@+id/sheet"
+      android:layout_width="match_parent"
+      android:layout_height="400dp"
+      app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+      app:layout_constraintBottom_toBottomOf="parent"
+      android:background="@drawable/round"
+      tools:ignore="MissingConstraints">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/dash"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/baseline_remove_24"
+        android:scaleType="centerCrop"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+       />
+    <LinearLayout
+        android:id="@+id/firstLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dash"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/pan"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@drawable/baseline_border_color_24"
+            app:fabCustomSize="45dp"
+            android:backgroundTint="#fff"
+           />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/eraser"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/eraser"
+            app:fabCustomSize="45dp"
+            android:backgroundTint="#fff"
+
+            />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/undo"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/baseline_undo_24"
+            app:fabCustomSize="45dp"
+            android:backgroundTint="#fff"
+            />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/redo"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/baseline_redo_24"
+            app:fabCustomSize="45dp"
+            android:backgroundTint="#fff"
+            />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/cleanBoard"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/baseline_clear_24"
+            app:fabCustomSize="45dp"
+            android:backgroundTint="#fff"
+            />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/saveDrawing"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@drawable/baseline_save_as_24"
+            app:fabCustomSize="45dp"
+            android:backgroundTint="#fff"
+            />
+    </LinearLayout>
+
+    <SeekBar
+        android:id="@+id/seekbar"
+        android:layout_width="190dp"
+        android:layout_height="200dp"
+        android:layout_below="@+id/firstLayout"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_gravity="left|center_vertical"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="1dp"
+        android:max="200"
+        android:min="0"
+        android:progress="12"
+        android:rotation="270" />
+
+    <TextView
+        android:id="@+id/eraseSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/firstLayout"
+        android:text="20"
+        android:layout_marginTop="60dp"
+        android:layout_marginStart="30dp"
+        android:textSize="30sp"/>
+
+
+    <RelativeLayout
+        android:id="@+id/color_parent_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/seekbar"
+        android:layout_below="@id/firstLayout"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="30dp">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/blueColor_btn"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/color_blue"
+
+            />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/redColor_btn"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:backgroundTint="@color/color_red"
+            android:layout_toRightOf="@id/blueColor_btn"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/greenColor_btn"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/color_green"
+
+            android:layout_toRightOf="@id/redColor_btn"/>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/yellowColor_btn"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/color_yellow"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/blueColor_btn"/>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/blackColor_btn"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/color_black"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/blueColor_btn"
+            android:layout_toRightOf="@id/yellowColor_btn"/>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/whiteColor_btn"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/color_white"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/blackColor_btn"
+            android:layout_below="@id/blueColor_btn"/>
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/brashAlpha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Brash Albha"
+        android:layout_below="@id/color_parent_layout"
+        android:layout_marginTop="50dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        />
+        <SeekBar
+            android:id="@+id/brashAlbhaSize"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_below="@id/brashAlpha"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="45dp"
+            android:min="0"
+            android:max="225"
+            android:layout_marginEnd="45dp"/>
+    <TextView
+        android:id="@+id/brashAlbhaText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/brashAlbhaSize"
+        android:layout_centerHorizontal="true"
+        android:text="20"
+
+        android:textSize="30sp"/>
+</RelativeLayout>
+
+
+  </FrameLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
